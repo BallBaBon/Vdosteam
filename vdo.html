@@ -3,38 +3,37 @@
 <head>
   <meta charset="utf-8">
   <title>My Video</title>
-  <link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet" />
   <style>
-    body { background: black; text-align: center; }
+    body { 
+      background: black; 
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .video-container {
+      width: 100%;
+      max-width: 900px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+    }
   </style>
 </head>
 <body>
 
-<video id="my-video" class="video-js" controls autoplay width="800">
-  <source id="video-source" type="video/mp4">
-</video>
-
-<script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
-
-<script>
-const FILE_ID = "1Vd7wJWHhrW6XqufPzEZsb2WYS8PGVS0x";
-
-const videoUrl = `https://drive.google.com/uc?export=download&id=${FILE_ID}`;
-const fallbackUrl = `https://drive.google.com/file/d/${FILE_ID}/preview`;
-
-const player = document.getElementById('my-video');
-const source = document.getElementById('video-source');
-
-source.src = videoUrl;
-player.load();
-
-// ถ้าเล่นไม่ได้ → ใช้ preview
-player.onerror = function() {
-  document.body.innerHTML = `
-    <iframe src="${fallbackUrl}" width="800" height="450" allow="autoplay"></iframe>
-  `;
-};
-</script>
+<div class="video-container">
+  <iframe 
+    src="https://www.youtube.com/embed/1AWx0fwL8uY?autoplay=1&mute=1&rel=0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+</div>
 
 </body>
 </html>
